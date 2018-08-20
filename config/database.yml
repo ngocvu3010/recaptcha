@@ -1,0 +1,23 @@
+default: &default
+  adapter: mysql2
+  pool: 5
+  username: root
+  password:
+  socket: /var/run/mysqld/mysqld.sock
+  encoding: utf8mb4
+  collation: utf8mb4_unicode_ci
+  redis:
+    host: localhost
+    port: 6379
+    db: 0
+    options:
+      namespace: recaptcha
+
+development:
+  <<: *default
+  database: recaptcha_development
+
+test:
+  <<: *default
+  database: recaptcha_test
+
